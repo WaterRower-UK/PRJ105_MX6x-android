@@ -41,6 +41,7 @@ readonly VARISCITE_SH_DIR="${SCRIPT_POINT}/sh"
 VENDOR_BASE_DIR=${ANDROID_DIR}/vendor/variscite
 LIBBT=$(readlink -f "${ANDROID_DIR}/hardware/broadcom/libbt")
 SEPOLICY=$(readlink -f "${ANDROID_DIR}/system/sepolicy")
+BLUETOOTH=$(readlink -f "${ANDROID_DIR}/packages/modules/Bluetooth")
 
 SC_MX8_FAMILY=$1
 readonly SCFW_BRANCH="1.6.0"
@@ -169,9 +170,9 @@ for _ddd in ${git_array}
 do
 	_git_p=$(echo ${_ddd} | sed 's/.git//g')
 	cd ${ANDROID_DIR}/${_git_p}/ > /dev/null
-	
+
 	if [[ `git branch --list $_EXTPARAM_BRANCH` ]] ; then
-		if [[ ${PWD} == ${LIBBT} ]] || [[ ${PWD} == ${SEPOLICY} ]]; then
+		if [[ ${PWD} == ${LIBBT} ]] || [[ ${PWD} == ${SEPOLICY} ]] || [[ ${PWD} == ${BLUETOOTH} ]]; then
 			git checkout tags/${ANDROID_TAG}
 		else
 			git checkout tags/${BASE_BRANCH_NAME}
@@ -212,7 +213,7 @@ pr_info "#######################"
 };
 
 pr_info "#######################"
-pr_info "# Clang setup #"
+pr_info "# Clang setup         #"
 pr_info "#######################"
 if [[ ! -d ${C_LANG_DIR} ]] ; then
 	sudo git clone ${C_LANG_LINK} ${C_LANG_DIR}

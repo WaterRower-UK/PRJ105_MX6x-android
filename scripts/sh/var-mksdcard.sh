@@ -206,7 +206,8 @@ fi
 
 if [[ "${soc_name}" = *"mx8mp"* ]]; then
 	bootloader_offset=32
-	bootloader_file="u-boot-imx8mp-var-dart.imx"
+	bootloader_file=spl-imx8mp-var-dart-dual.bin
+	uboot_proper_file=bootloader-imx8mp-var-dart-dual.img
 fi
 
 if [[ "${soc_name}" = *"mx8qx"* ]]; then

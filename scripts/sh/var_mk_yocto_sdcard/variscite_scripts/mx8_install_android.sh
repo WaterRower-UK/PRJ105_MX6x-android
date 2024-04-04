@@ -58,20 +58,36 @@ else
 fi
 
 function add_imx8mp_menu() {
-	img_list+=("dtbo-imx8mp-var-dart-dt8mcustomboard-legacy-basler-isp0.img (DART-MX8M-PLUS on DT8MCustomBoard 1.x, with LVDS and Basler VCAM-AR0821B camera support)")
-	img_list+=("dtbo-imx8mp-var-dart-dt8mcustomboard-legacy-hdmi.img        (DART-MX8M-PLUS on DT8MCustomBoard 1.x, with HDMI support)")
-	img_list+=("dtbo-imx8mp-var-dart-dt8mcustomboard-legacy-m7.img          (DART-MX8M-PLUS on DT8MCustomBoard 1.x, with LVDS and M7 support)")
-	img_list+=("dtbo-imx8mp-var-dart-dt8mcustomboard-legacy.img             (DART-MX8M-PLUS on DT8MCustomBoard 1.x, with LVDS support)")
 	img_list+=("dtbo-imx8mp-var-dart-dt8mcustomboard-basler-isp0.img        (DART-MX8M-PLUS on DT8MCustomBoard 2.x and above, with LVDS and Basler VCAM-AR0821B camera support)")
-	img_list+=("dtbo-imx8mp-var-dart-dt8mcustomboard-hdmi.img               (DART-MX8M-PLUS on DT8MCustomBoard 2.x and above, with HDMI support)")
+	img_list+=("dtbo-imx8mp-var-dart-dt8mcustomboard-basler-isp0-m7.img     (DART-MX8M-PLUS on DT8MCustomBoard 2.x and above, with LVDS, Basler VCAM-AR0821B camera and M7 support)")
+	img_list+=("dtbo-imx8mp-var-dart-dt8mcustomboard-basler-isi0.img        (DART-MX8M-PLUS on DT8MCustomBoard 2.x and above, with LVDS and Basler VCAM-AR1335B camera support)")
+	img_list+=("dtbo-imx8mp-var-dart-dt8mcustomboard-basler-isi0-m7.img     (DART-MX8M-PLUS on DT8MCustomBoard 2.x and above, with LVDS, Basler VCAM-AR1335B camera and M7 support)")
 	img_list+=("dtbo-imx8mp-var-dart-dt8mcustomboard-m7.img                 (DART-MX8M-PLUS on DT8MCustomBoard 2.x and above, with LVDS and M7 support)")
 	img_list+=("dtbo-imx8mp-var-dart-dt8mcustomboard.img                    (DART-MX8M-PLUS on DT8MCustomBoard 2.x and above, with LVDS support)")
 	img_list+=("dtbo-imx8mp-var-som-symphony-2nd-ov5640-m7.img              (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS, 2nd OV5640 and M7 support)")
 	img_list+=("dtbo-imx8mp-var-som-symphony-2nd-ov5640.img                 (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS and 2nd OV5640 support)")
 	img_list+=("dtbo-imx8mp-var-som-symphony-basler-isp0.img                (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS and Basler VCAM-AR0821B camera support)")
-	img_list+=("dtbo-imx8mp-var-som-symphony-hdmi.img                       (VAR-SOM-MX8M-PLUS on Symphony-Board, with HDMI support)")
+	img_list+=("dtbo-imx8mp-var-som-symphony-basler-isp0-m7.img             (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS, Basler VCAM-AR0821B camera and M7 support)")
+	img_list+=("dtbo-imx8mp-var-som-symphony-basler-isi0.img                (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS and Basler VCAM-AR1335B camera support)")
+	img_list+=("dtbo-imx8mp-var-som-symphony-basler-isi0-m7.img             (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS, Basler VCAM-AR1335B camera and M7 support)")
 	img_list+=("dtbo-imx8mp-var-som-symphony-m7.img                         (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS and M7 support)")
 	img_list+=("dtbo-imx8mp-var-som-symphony.img                            (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS support)")
+	img_list+=("dtbo-imx8mp-var-som-1.x-symphony-2nd-ov5640-m7.img          (VAR-SOM-MX8M-PLUS V1.x on Symphony-Board, with LVDS, 2nd OV5640 and M7 support)")
+	img_list+=("dtbo-imx8mp-var-som-1.x-symphony-2nd-ov5640.img             (VAR-SOM-MX8M-PLUS V1.x on Symphony-Board, with LVDS and 2nd OV5640 support)")
+	img_list+=("dtbo-imx8mp-var-som-1.x-symphony-basler-isp0.img            (VAR-SOM-MX8M-PLUS V1.x on Symphony-Board, with LVDS and Basler VCAM-AR0821B camera support)")
+	img_list+=("dtbo-imx8mp-var-som-1.x-symphony-basler-isp0-m7.img         (VAR-SOM-MX8M-PLUS V1.x on Symphony-Board, with LVDS, Basler VCAM-AR0821B camera and M7 support)")
+	img_list+=("dtbo-imx8mp-var-som-1.x-symphony-basler-isi0.img            (VAR-SOM-MX8M-PLUS V1.x on Symphony-Board, with LVDS and Basler VCAM-AR1335B camera support)")
+	img_list+=("dtbo-imx8mp-var-som-1.x-symphony-basler-isi0-m7.img         (VAR-SOM-MX8M-PLUS V1.x on Symphony-Board, with LVDS, Basler VCAM-AR1335B camera and M7 support)")
+	img_list+=("dtbo-imx8mp-var-som-1.x-symphony-m7.img                     (VAR-SOM-MX8M-PLUS V1.x on Symphony-Board, with LVDS and M7 support)")
+	img_list+=("dtbo-imx8mp-var-som-1.x-symphony.img                        (VAR-SOM-MX8M-PLUS V1.x on Symphony-Board, with LVDS support)")
+	img_list+=("dtbo-imx8mp-var-som-wbe-symphony-2nd-ov5640-m7.img          (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS, WBE, 2nd OV5640 and M7 support)")
+	img_list+=("dtbo-imx8mp-var-som-wbe-symphony-2nd-ov5640.img             (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS, WBE and 2nd OV5640 support)")
+	img_list+=("dtbo-imx8mp-var-som-wbe-symphony-basler-isp0.img            (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS, WBE and Basler VCAM-AR0821B camera support)")
+	img_list+=("dtbo-imx8mp-var-som-wbe-symphony-basler-isp0-m7.img         (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS, WBE, Basler VCAM-AR0821B camera and M7 support)")
+	img_list+=("dtbo-imx8mp-var-som-wbe-symphony-basler-isi0.img            (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS, WBE and Basler VCAM-AR1335B camera support)")
+	img_list+=("dtbo-imx8mp-var-som-wbe-symphony-basler-isi0-m7.img         (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS, WBE, Basler VCAM-AR1335B camera and M7 support)")
+	img_list+=("dtbo-imx8mp-var-som-wbe-symphony-m7.img                     (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS, WBE and M7 support)")
+	img_list+=("dtbo-imx8mp-var-som-wbe-symphony.img                        (VAR-SOM-MX8M-PLUS on Symphony-Board, with LVDS and WBE support)")
 }
 
 function add_imx8mm_menu() {
@@ -234,7 +250,7 @@ if [[ $soc_name == "showoptions" ]] && [[ ${#img_list[@]} > 1 ]] ; then
 fi
 
 dtboimage_file="dtbo-${soc_name}.img"
-bootimage_file="boot.img"
+bootimage_file="boot-imx.img"
 initboot_image_file="init_boot.img"
 vendor_bootimage_file="vendor_boot.img"
 vbmeta_file="vbmeta-${soc_name}.img"
@@ -276,7 +292,8 @@ fi
 
 if [[ "${soc_name}" = *"mx8mp"* ]]; then
 	bootloader_offset=32
-	bootloader_file="u-boot-imx8mp-var-dart.imx"
+	bootloader_file=spl-imx8mp-var-dart-dual.bin
+	uboot_proper_file=bootloader-imx8mp-var-dart-dual.img
 fi
 
 
