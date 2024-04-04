@@ -360,13 +360,13 @@ PRODUCT_PACKAGES += \
 
 # Sterling LWB / LWB5 wifi and bluetooth combo Firmware
 PRODUCT_COPY_FILES += \
-    $(BCM_FIRMWARE_PATH)/lwb/lib/firmware/brcm/BCM43430A1.hcd:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/BCM43430A1.hcd \
-    $(BCM_FIRMWARE_PATH)/lwb/lib/firmware/brcm/brcmfmac43430-sdio.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac43430-sdio.bin \
-    $(BCM_FIRMWARE_PATH)/lwb/lib/firmware/brcm/brcmfmac43430-sdio.txt:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac43430-sdio.txt \
-    $(BCM_FIRMWARE_PATH)/lwb/lib/firmware/brcm/brcmfmac43430-sdio.clm_blob:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac43430-sdio.clm_blob \
-    $(BCM_FIRMWARE_PATH)/lwb5/lib/firmware/brcm/BCM4335C0.hcd:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/BCM4335C0.hcd \
-    $(BCM_FIRMWARE_PATH)/lwb5/lib/firmware/brcm/brcmfmac4339-sdio.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac4339-sdio.bin \
-    $(BCM_FIRMWARE_PATH)/lwb5/lib/firmware/brcm/brcmfmac4339-sdio.txt:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac4339-sdio.txt
+    $(BCM_FIRMWARE_PATH)/brcm/BCM43430A1.hcd:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/BCM43430A1.hcd \
+    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac43430-sdio.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac43430-sdio.bin \
+    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac43430-sdio.txt:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac43430-sdio.txt \
+    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac43430-sdio.clm_blob:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac43430-sdio.clm_blob \
+    $(BCM_FIRMWARE_PATH)/brcm/BCM4335C0.hcd:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/BCM4335C0.hcd \
+    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac4339-sdio.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac4339-sdio.bin \
+    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac4339-sdio.txt:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/brcmfmac4339-sdio.txt
 
 # Wifi regulatory
 PRODUCT_COPY_FILES += \
