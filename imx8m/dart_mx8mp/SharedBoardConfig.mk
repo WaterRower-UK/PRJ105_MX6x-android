@@ -103,7 +103,8 @@ BOARD_VENDOR_KERNEL_MODULES +=     \
     $(KERNEL_OUT)/sound/soc/codecs/snd-soc-wm8904.ko \
     $(KERNEL_OUT)/drivers/bluetooth/btbcm.ko \
     $(KERNEL_OUT)/drivers/bluetooth/btqca.ko \
-    $(KERNEL_OUT)/drivers/bluetooth/hci_uart.ko
+    $(KERNEL_OUT)/drivers/bluetooth/hci_uart.ko \
+    $(KERNEL_OUT)/drivers/bluetooth/btnxpuart.ko
 endif
 
 # CONFIG_TOUCHSCREEN_GOODIX: goodix_ts.ko, rm67199 mipi-panel touch driver module
