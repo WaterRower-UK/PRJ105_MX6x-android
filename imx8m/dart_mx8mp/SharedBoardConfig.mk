@@ -89,6 +89,7 @@ BOARD_VENDOR_KERNEL_MODULES += \
 BOARD_VENDOR_KERNEL_MODULES +=     \
     $(KERNEL_OUT)/drivers/net/phy/adin.ko \
     $(KERNEL_OUT)/drivers/net/phy/at803x.ko \
+    $(KERNEL_OUT)/drivers/net/phy/mxl-8611x.ko \
     $(KERNEL_OUT)/drivers/net/pcs/pcs_xpcs.ko \
     $(KERNEL_OUT)/net/can/can.ko \
     $(KERNEL_OUT)/net/can/can-gw.ko \
