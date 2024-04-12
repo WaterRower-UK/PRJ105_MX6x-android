@@ -1,0 +1,65 @@
+From cd05cefec958f914ad669915972bfb08e4cfae59 Mon Sep 17 00:00:00 2001
+From: Natalia Kovalenko <natasha.k@variscite.com>
+Date: Fri, 12 Apr 2024 14:50:08 +0200
+Subject: [PATCH] android-imx_platform_hardware_nxp_libbt: Add build rules for dart_mx8mp
+
+Add possibility to build shared library libbt-vendor.so also for TARGET_PRODUCT
+dart_mx8mp on VAR-SOM-MX8M-PLUS V2.0, when BOARD_HAVE_BLUETOOTH_NXP and
+TARGET_USES_VND_LIBBT are set to true.
+
+Signed-off-by: Natalia Kovalenko <natasha.k@variscite.com>
+---
+ Android.mk                         |  3 +++
+ conf/nxp/dart_mx8mp/Android.mk     | 11 +++++++++++
+ conf/nxp/dart_mx8mp/bt_vendor.conf | 10 ++++++++++
+ 3 files changed, 24 insertions(+)
+ create mode 100644 conf/nxp/dart_mx8mp/Android.mk
+ create mode 100644 conf/nxp/dart_mx8mp/bt_vendor.conf
+
+diff --git a/Android.mk b/Android.mk
+index 1362dad..d3a65fe 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -96,4 +96,7 @@ endif
+ ifeq ($(TARGET_PRODUCT),$(filter $(TARGET_PRODUCT),mek_8q mek_8q_car mek_8q_car2))
+     include $(LOCAL_PATH)/conf/nxp/mek_8q/Android.mk
+ endif
++ifeq ($(TARGET_PRODUCT), dart_mx8mp)
++    include $(LOCAL_PATH)/conf/nxp/dart_mx8mp/Android.mk
++endif
+ endif # BOARD_HAVE_BLUETOOTH_NXP
+diff --git a/conf/nxp/dart_mx8mp/Android.mk b/conf/nxp/dart_mx8mp/Android.mk
+new file mode 100644
+index 0000000..26f62f4
+--- /dev/null
++++ b/conf/nxp/dart_mx8mp/Android.mk
+@@ -0,0 +1,11 @@
++LOCAL_PATH := $(call my-dir)
++
++include $(CLEAR_VARS)
++
++LOCAL_MODULE := bt_vendor.conf
++LOCAL_MODULE_CLASS := ETC
++LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc/bluetooth
++LOCAL_SRC_FILES := $(LOCAL_MODULE)
++
++include $(BUILD_PREBUILT)
++
+diff --git a/conf/nxp/dart_mx8mp/bt_vendor.conf b/conf/nxp/dart_mx8mp/bt_vendor.conf
+new file mode 100644
+index 0000000..400f78c
+--- /dev/null
++++ b/conf/nxp/dart_mx8mp/bt_vendor.conf
+@@ -0,0 +1,10 @@
++mchar_port = /dev/ttymxc2
++pFileName_helper =  /vendor/firmware/helper_uart_3000000.bin
++pFileName_image = /vendor/firmware/sduart_nw61x_v1.bin.se
++baudrate_dl_helper = 115200
++baudrate_dl_image = 3000000
++iSecondBaudrate = 0
++baudrate_fw_init = 115200
++baudrate_bt = 3000000
++enable_download_fw=0
++vhal_trace_level = 4
+-- 
+2.34.1
