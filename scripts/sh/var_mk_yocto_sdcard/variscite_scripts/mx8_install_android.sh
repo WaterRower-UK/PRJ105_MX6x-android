@@ -36,7 +36,7 @@ elif grep -q "i.MX8MN" /sys/devices/soc0/soc_id; then
 elif grep -q "i.MX8MP" /sys/devices/soc0/soc_id; then
 	node=/dev/mmcblk2
 	som="imx8mp"
-elif grep -q "i.MX8M" /sys/devices/soc0/soc_id; then
+elif grep -q "i.MX8MQ" /sys/devices/soc0/soc_id; then
 	node=/dev/mmcblk0
 	sdshared=true
 	som="imx8mq"
@@ -168,7 +168,7 @@ function rename_remoteproc_images {
 		cp ${imagesdir}/${mcu_os_demo_file_8mp_som}	${imagesdir}/${mcu_os_demo_file}
 	elif [[ "$1" == *"imx8mp-var-dart"* ]]; then
 		cp ${imagesdir}/${mcu_os_demo_file_8mp_dart}	${imagesdir}/${mcu_os_demo_file}
-	fi	
+	fi
 }
 
 moreoptions=1
@@ -330,7 +330,7 @@ PRODUCT_B        : ${PRODUCT_ROM_SIZE} MiB"
 
 if [[ -f ${imagesdir}/${superimage_file} ]] ; then
 	dynamic_img=true
-	dynamic_part="SUPER           : ${SUPER_ROM_SIZE} MiB"
+	dynamic_part="SUPER            : ${SUPER_ROM_SIZE} MiB"
 fi
 
 firmware=""
