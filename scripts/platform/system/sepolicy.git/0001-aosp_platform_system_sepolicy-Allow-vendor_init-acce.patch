@@ -1,0 +1,48 @@
+From db179944465bc96cf1df4b831c48e848a7e1fe58 Mon Sep 17 00:00:00 2001
+From: Natalia Kovalenko <natasha.k@variscite.com>
+Date: Thu, 9 May 2024 22:46:34 +0200
+Subject: [PATCH] aosp_platform_system_sepolicy: Allow vendor_init access to
+ ota_package_file
+
+When target_build_variant is "user", there is no way to get superuser permissions and
+SELinux is in Enforced mode. Init before to set SELinux mode (when kernel command line
+has androidboot.selinux=permissive) will check the flag ALLOW_PERMISSIVE_SELINUX
+and Permissive mode is not allowed in production build.
+For the OTA updates test to have access to /data/ota_package, vendor_init should
+have "setattr" allowed to change the permissions of /data/ota_package, but vendor_init
+can't access core_data_file_type due to neverallow rules applied.
+As a workaround, exclude ota_package_file from this restriction.
+
+Signed-off-by: Natalia Kovalenko <natasha.k@variscite.com>
+---
+ prebuilts/api/34.0/public/domain.te | 1 +
+ public/domain.te                    | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/prebuilts/api/34.0/public/domain.te b/prebuilts/api/34.0/public/domain.te
+index 1da3f51a9..5ffcb2854 100644
+--- a/prebuilts/api/34.0/public/domain.te
++++ b/prebuilts/api/34.0/public/domain.te
+@@ -834,6 +834,7 @@ full_treble_only(`
+     -system_data_root_file
+     -vendor_userdir_file
+     -vendor_data_file
++    -ota_package_file
+     with_native_coverage(`-method_trace_data_file')
+   }:dir *;
+   # vendor init needs to be able to read unencrypted_data_file to create directories with FBE.
+diff --git a/public/domain.te b/public/domain.te
+index 1da3f51a9..5ffcb2854 100644
+--- a/public/domain.te
++++ b/public/domain.te
+@@ -834,6 +834,7 @@ full_treble_only(`
+     -system_data_root_file
+     -vendor_userdir_file
+     -vendor_data_file
++    -ota_package_file
+     with_native_coverage(`-method_trace_data_file')
+   }:dir *;
+   # vendor init needs to be able to read unencrypted_data_file to create directories with FBE.
+-- 
+2.34.1
+
