@@ -1,0 +1,6 @@
+ifelse(target_build_variant, `user',
+  `allow shell ota_package_file:dir create_dir_perms;
+   allow shell ota_package_file:file create_file_perms;
+   binder_call(shell, update_engine)
+   allow shell update_engine_service:service_manager find;
+   allow shell update_engine_exec:file { getattr execute read open execute_no_trans map };', )

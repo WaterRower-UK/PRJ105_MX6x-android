@@ -1,0 +1,2 @@
+ifelse(target_build_variant, `user',
+  `allow vendor_init ota_package_file:dir { setattr };', )
