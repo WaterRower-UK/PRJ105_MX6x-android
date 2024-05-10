@@ -172,7 +172,7 @@ do
 	cd ${ANDROID_DIR}/${_git_p}/ > /dev/null
 
 	if [[ `git branch --list $_EXTPARAM_BRANCH` ]] ; then
-		if [[ ${PWD} == ${LIBBT} ]] || [[ ${PWD} == ${SEPOLICY} ]] || [[ ${PWD} == ${BLUETOOTH} ]]; then
+		if [[ ${PWD} == ${LIBBT} ]] || [[ ${PWD} == ${BLUETOOTH} ]]; then
 			git checkout tags/${ANDROID_TAG}
 		else
 			git checkout tags/${BASE_BRANCH_NAME}
