@@ -9,10 +9,11 @@ readonly SCRIPT_VERSION="0.8"
 #### global variables ####
 readonly ABSOLUTE_FILENAME=`readlink -e "$0"`
 readonly ABSOLUTE_DIRECTORY=`dirname ${ABSOLUTE_FILENAME}`
-readonly SCRIPT_POINT=`pwd`/sources/meta-variscite-fslc/scripts/
+readonly SCRIPT_POINT=`pwd`/sources/meta-variscite-sdk-imx/scripts
 
 ANDROID_SCRIPTS_PATH=${SCRIPT_POINT}/var_mk_yocto_sdcard/variscite_scripts
-ANDROID_BUILD_ROOT=~/var_imx-android-11.0.0_2.6.0/android_build
+HOME="$(getent passwd $SUDO_USER | cut -d: -f6)"
+ANDROID_BUILD_ROOT=${HOME}/var_imx-android-14.0.0_1.0.0/android_build
 
 TEMP_DIR=./var_tmp
 ROOTFS_MOUNT_DIR=${TEMP_DIR}/rootfs
@@ -96,8 +97,10 @@ function copy_android
 	echo "Copying Android images to /opt/images/"
 	mkdir -p ${ROOTFS_MOUNT_DIR}/opt/images/Android
 
-	cp ${ANDROID_IMGS_PATH}/u-boot-${MACHINE}*.imx	${ROOTFS_MOUNT_DIR}/opt/images/Android/
+	cp ${ANDROID_IMGS_PATH}/spl-${MACHINE}-dual.bin	        ${ROOTFS_MOUNT_DIR}/opt/images/Android/
+	cp ${ANDROID_IMGS_PATH}/bootloader-${MACHINE}-dual.img  ${ROOTFS_MOUNT_DIR}/opt/images/Android/
 	cp ${ANDROID_IMGS_PATH}/boot-imx.img			${ROOTFS_MOUNT_DIR}/opt/images/Android/
+	cp ${ANDROID_IMGS_PATH}/init_boot.img                   ${ROOTFS_MOUNT_DIR}/opt/images/Android/
 	cp ${ANDROID_IMGS_PATH}/dtbo-*.img			${ROOTFS_MOUNT_DIR}/opt/images/Android/
 	cp ${ANDROID_IMGS_PATH}/vbmeta-*.img			${ROOTFS_MOUNT_DIR}/opt/images/Android/
 
@@ -123,7 +126,7 @@ function copy_android
 		sync | pv -t
 	fi
 	if [ -e "${ANDROID_IMGS_PATH}/vendor_boot.img" ]; then
-                echo "Copying super image to /opt/images/"
+                echo "Copying vendor_boot image to /opt/images/"
                 pv ${ANDROID_IMGS_PATH}/vendor_boot.img >             ${ROOTFS_MOUNT_DIR}/opt/images/Android/vendor_boot.img
                 sync | pv -t
 	fi

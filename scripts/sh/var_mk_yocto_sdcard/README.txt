@@ -11,20 +11,20 @@ Before running this script you need to bitbake fsl-image-gui.
 Run below commands to create symbolic link from yocto to Android scripts
 - Assuming your yocto and android is built under following paths
 Yocto Base DIR : ~/var-fsl-yocto
-Android Base DIR : ~/var_imx-android-10.0.0_2.5.0
+Android Base DIR : ~/var_imx-android-14.0.0_1.0.0
 $ export YOCTO_BSP_BUILD=~/var-fsl-yocto
-$ export ANDROID_BSP_BUILD=~/var_imx-android-10.0.0_2.5.0/android_build/
+$ export ANDROID_BSP_BUILD=~/var_imx-android-14.0.0_1.0.0/android_build/
 $ ln -sf ${ANDROID_BSP_BUILD}/device/variscite/scripts/sh/var_mk_yocto_sdcard/var-create-yocto-sdcard-with-android.sh \
- ${YOCTO_BSP_BUILD}/sources/meta-variscite-imx/scripts/var_mk_yocto_sdcard/var-create-yocto-sdcard-with-android.sh
+ ${YOCTO_BSP_BUILD}/sources/meta-variscite-sdk-imx/scripts/var_mk_yocto_sdcard/var-create-yocto-sdcard-with-android.sh
 $ ln -sf ${ANDROID_BSP_BUILD}/device/variscite/scripts/sh/var_mk_yocto_sdcard/variscite_scripts/mx8_install_android.sh \
- ${YOCTO_BSP_BUILD}/sources/meta-variscite-imx/scripts/var_mk_yocto_sdcard/variscite_scripts/mx8_install_android.sh
+ ${YOCTO_BSP_BUILD}/sources/meta-variscite-sdk-imx/scripts/var_mk_yocto_sdcard/variscite_scripts/mx8_install_android.sh
 
 $ cd ${YOCTO_BSP_BUILD}
 
 For creating SDcard with only Yocto:
 =================================
 Usage:
-sudo MACHINE=<imx6ul-var-dart|imx8mq-var-dart|imx8mm-var-dart|imx8qxp-var-som|imx8qm-var-som|imx8mn-var-som|imx8mp-var-dart> sources/meta-variscite-imx/scripts/var_mk_yocto_sdcard/var-create-yocto-sdcard.sh [options] /dev/sdX
+sudo MACHINE=<imx6ul-var-dart|imx8mq-var-dart|imx8mm-var-dart|imx8qxp-var-som|imx8qm-var-som|imx8mn-var-som|imx8mp-var-dart> sources/meta-variscite-sdk-imx/scripts/var_mk_yocto_sdcard/var-create-yocto-sdcard.sh [options] /dev/sdX
 (Change /dev/sdX to your device name)
 
 options:
@@ -45,7 +45,7 @@ install_yocto.sh
 For creating SDcard with Yocto + Android:
 =========================================
 Usage:
-sudo MACHINE=<imx6ul-var-dart|imx8mq-var-dart|imx8mm-var-dart|imx8qxp-var-som|imx8qm-var-som|imx8mn-var-som|imx8mp-var-dart> sources/meta-variscite-imx/scripts/var_mk_yocto_sdcard/var-create-yocto-sdcard-with-android.sh [options] /dev/sdX
+sudo MACHINE=<imx6ul-var-dart|imx8mq-var-dart|imx8mm-var-dart|imx8qxp-var-som|imx8qm-var-som|imx8mn-var-som|imx8mp-var-dart> sources/meta-variscite-sdk-imx/scripts/var_mk_yocto_sdcard/var-create-yocto-sdcard-with-android.sh [options] /dev/sdX
 (Change /dev/sdX to your device name)
 
 options:
