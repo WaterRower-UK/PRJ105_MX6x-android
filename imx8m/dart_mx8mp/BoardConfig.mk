@@ -3,6 +3,9 @@
 # Product-specific compile-time definitions.
 #
 
+# Set this variable before BoardConfigCommon.mk
+# to avoid getting wrong boot.img
+TARGET_IMX_KERNEL := true
 include $(CONFIG_REPO_PATH)/imx8m/BoardConfigCommon.mk
 
 # -------@block_common_config-------
@@ -66,12 +69,9 @@ else
   endif
 endif
 
-# These variables are used to specify the dtbo and boot images to include in the OTA package.
-# Modify the value of these variables to fit your requirement.
+# This variable is used to specify the dtbo to include in the OTA package.
+# Modify the value of this variable to fit your requirement.
 BOARD_PREBUILT_DTBOIMAGE := $(OUT_DIR)/target/product/$(PRODUCT_DEVICE)/dtbo-imx8mp-var-dart-dt8mcustomboard.img
-ifeq ($(TARGET_IMX_KERNEL),false)
-BOARD_PREBUILT_BOOTIMAGE := $(OUT_DIR)/target/product/$(PRODUCT_DEVICE)/boot-imx.img
-endif
 
 BOARD_USES_METADATA_PARTITION := true
 BOARD_ROOT_EXTRA_FOLDERS += metadata

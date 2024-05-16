@@ -99,7 +99,7 @@ function copy_android
 
 	cp ${ANDROID_IMGS_PATH}/spl-${MACHINE}-dual.bin	        ${ROOTFS_MOUNT_DIR}/opt/images/Android/
 	cp ${ANDROID_IMGS_PATH}/bootloader-${MACHINE}-dual.img  ${ROOTFS_MOUNT_DIR}/opt/images/Android/
-	cp ${ANDROID_IMGS_PATH}/boot-imx.img			${ROOTFS_MOUNT_DIR}/opt/images/Android/
+	cp ${ANDROID_IMGS_PATH}/boot.img			${ROOTFS_MOUNT_DIR}/opt/images/Android/
 	cp ${ANDROID_IMGS_PATH}/init_boot.img                   ${ROOTFS_MOUNT_DIR}/opt/images/Android/
 	cp ${ANDROID_IMGS_PATH}/dtbo-*.img			${ROOTFS_MOUNT_DIR}/opt/images/Android/
 	cp ${ANDROID_IMGS_PATH}/vbmeta-*.img			${ROOTFS_MOUNT_DIR}/opt/images/Android/
