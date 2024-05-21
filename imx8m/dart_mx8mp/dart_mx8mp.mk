@@ -435,16 +435,10 @@ PRODUCT_PACKAGES += \
 
 # -------@block_cm_rpmsg-------
 PRODUCT_COPY_FILES += \
-	device/variscite/imx8m/dart_mx8mp/cm_hello_world.bin.ddr_debug_dart:cm_hello_world.bin.ddr_debug_dart \
-	device/variscite/imx8m/dart_mx8mp/cm_hello_world.bin.ddr_debug_som:cm_hello_world.bin.ddr_debug_som \
 	device/variscite/imx8m/dart_mx8mp/cm_hello_world.bin.debug_dart:cm_hello_world.bin.debug_dart \
 	device/variscite/imx8m/dart_mx8mp/cm_hello_world.bin.debug_som:cm_hello_world.bin.debug_som \
-	device/variscite/imx8m/dart_mx8mp/cm_rpmsg_lite_pingpong_rtos_linux_remote.bin.ddr_debug_dart:cm_rpmsg_lite_pingpong_rtos_linux_remote.bin.ddr_debug_dart \
-	device/variscite/imx8m/dart_mx8mp/cm_rpmsg_lite_pingpong_rtos_linux_remote.bin.ddr_debug_som:cm_rpmsg_lite_pingpong_rtos_linux_remote.bin.ddr_debug_som \
 	device/variscite/imx8m/dart_mx8mp/cm_rpmsg_lite_pingpong_rtos_linux_remote.bin.debug_dart:cm_rpmsg_lite_pingpong_rtos_linux_remote.bin.debug_dart \
 	device/variscite/imx8m/dart_mx8mp/cm_rpmsg_lite_pingpong_rtos_linux_remote.bin.debug_som:cm_rpmsg_lite_pingpong_rtos_linux_remote.bin.debug_som \
-	device/variscite/imx8m/dart_mx8mp/cm_rpmsg_lite_str_echo_rtos.bin.ddr_debug_dart:cm_rpmsg_lite_str_echo_rtos.bin.ddr_debug_dart \
-	device/variscite/imx8m/dart_mx8mp/cm_rpmsg_lite_str_echo_rtos.bin.ddr_debug_som:cm_rpmsg_lite_str_echo_rtos.bin.ddr_debug_som \
 	device/variscite/imx8m/dart_mx8mp/cm_rpmsg_lite_str_echo_rtos.bin.debug_dart:cm_rpmsg_lite_str_echo_rtos.bin.debug_dart \
 	device/variscite/imx8m/dart_mx8mp/cm_rpmsg_lite_str_echo_rtos.bin.debug_som:cm_rpmsg_lite_str_echo_rtos.bin.debug_som \
 	device/variscite/imx8m/dart_mx8mp/cm_hello_world.elf.ddr_debug_dart:vendor/firmware/cm_hello_world.elf.ddr_debug_dart \
