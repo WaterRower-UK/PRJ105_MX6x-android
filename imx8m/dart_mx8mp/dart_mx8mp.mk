@@ -713,3 +713,9 @@ PRODUCT_PACKAGES += \
 
 # make sure /vendor/etc/configs/isp/ is created
     PRODUCT_PACKAGES += hollow
+
+# Install the imx_rpmsg_pingpong.ko and imx_rpmsg_tty.ko
+# modules to load when needed using insmod
+PRODUCT_COPY_FILES += \
+    $(OUT_DIR)/target/product/$(firstword $(PRODUCT_DEVICE))/obj/KERNEL_OBJ/drivers/rpmsg/imx_rpmsg_pingpong.ko:/vendor/imx_rpmsg_pingpong.ko \
+    $(OUT_DIR)/target/product/$(firstword $(PRODUCT_DEVICE))/obj/KERNEL_OBJ/drivers/rpmsg/imx_rpmsg_tty.ko:/vendor/imx_rpmsg_tty.ko
