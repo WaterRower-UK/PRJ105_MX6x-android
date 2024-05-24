@@ -322,8 +322,29 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MultiDisplay
 
+# NOTE: The association is performed only for touch devices
+# This file needs to be modified according to actual connection.
+# One display port can be bound with multiple input ports (from Android User's Guide).
 PRODUCT_COPY_FILES += \
     $(NXP_DEVICE_PATH)/input-port-associations.xml:$(TARGET_COPY_OUT_VENDOR)/etc/input-port-associations.xml
+
+# By default, the secondary display in 'Mirror Mode',
+# to have it in 'Extended Mode' set PRODUCT_MULTI_DISPLAY to true
+PRODUCT_MULTI_DISPLAY ?= false
+
+# Secondary Display Settings
+# The secondary display will use the system's Home Screen Launcher.
+# To have the mouse pointer associated with this display
+# enable "Force Desktop Mode" in Developer Options or issue this command:
+# 'settings put global force_desktop_mode_on_external_displays 1'
+# and then reboot the device.
+# Known issue: The navigation bar HOME and BACK button icons are invisible.
+# There are still button mouse areas that receive mouse events in the left
+# corner at the bottom of the screen.
+ifeq ($(PRODUCT_MULTI_DISPLAY),true)
+PRODUCT_COPY_FILES += \
+    $(IMX_DEVICE_PATH)/display_settings.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display_settings.xml
+endif
 
 # -------@block_gpu-------
 PRODUCT_PACKAGES += \

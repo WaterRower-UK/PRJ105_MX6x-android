@@ -190,4 +190,8 @@
 
     <!-- Boolean indicating whether system support sustained performance mode. -->
     <bool name="config_sustainedPerformanceModeSupported">true</bool>
+    <!-- The secondary home launcher is specified in config_secondaryHomePackage.
+         When this value below is true the launcher is provided by the system,
+         otherwise you can replace the launcher in config_secondaryHomePackage -->
+    <bool name ="config_useSystemProvidedLauncherForSecondary">true</bool>
 </resources>
