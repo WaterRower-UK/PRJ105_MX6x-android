@@ -86,12 +86,14 @@ function add_imx8mp_menu() {
 }
 
 function add_imx8mm_menu() {
-	img_list+=("dtbo-imx8mm-var-dart-dt8mcustomboard-legacy-m4.img (DART-MX8M-MINI on DT8MCustomBoard 1.x, with M4 support)")
-	img_list+=("dtbo-imx8mm-var-dart-dt8mcustomboard-legacy.img    (DART-MX8M-MINI on DT8MCustomBoard 1.x)")
-	img_list+=("dtbo-imx8mm-var-dart-dt8mcustomboard-m4.img        (DART-MX8M-MINI on DT8MCustomBoard 2.x and above, with M4 support)")
-	img_list+=("dtbo-imx8mm-var-dart-dt8mcustomboard.img           (DART-MX8M-MINI on DT8MCustomBoard 2.x and above)")
-	img_list+=("dtbo-imx8mm-var-som-symphony-m4.img                (VAR-SOM-MX8M-MINI on Symphony-Board with M4 support)")
-	img_list+=("dtbo-imx8mm-var-som-symphony.img                   (VAR-SOM-MX8M-MINI on Symphony-Board)")
+	img_list+=("dtbo-imx8mm-var-dart-1.x-dt8mcustomboard.img 	(DART-MX8M-MINI on DT8MCustomBoard 1.x with M4 support)")
+	img_list+=("dtbo-imx8mm-var-dart-1.x-dt8mcustomboard-m4.img	(DART-MX8M-MINI on DT8MCustomBoard 1.x)")
+	img_list+=("dtbo-imx8mm-var-dart-dt8mcustomboard-m4.img		(DART-MX8M-MINI on DT8MCustomBoard 2.x and above, with WBE and M4 support)")
+	img_list+=("dtbo-imx8mm-var-dart-dt8mcustomboard.img		(DART-MX8M-MINI on DT8MCustomBoard 2.x and above)")
+	img_list+=("dtbo-imx8mm-var-dart-wbe-dt8mcustomboard-m4.img	(DART-MX8M-MINI on DT8MCustomBoard 2.x and above, with WBE and M4 support)")
+	img_list+=("dtbo-imx8mm-var-dart-wbe-dt8mcustomboard.img	(DART-MX8M-MINI on DT8MCustomBoard 2.x and above)")
+	img_list+=("dtbo-imx8mm-var-som-symphony-m4.img			(VAR-SOM-MX8M-MINI on Symphony-Board with M4 support)")
+	img_list+=("dtbo-imx8mm-var-som-symphony.img			(VAR-SOM-MX8M-MINI on Symphony-Board)")
 }
 
 function add_imx8mq_menu() {
@@ -292,7 +294,9 @@ fi
 
 if [[ "${soc_name}" = *"mx8mm"* ]]; then
 	bootloader_offset=33
-	bootloader_file="u-boot-imx8mm-var-dart.imx"
+	mcu_os_demo_file="cm_rpmsg_lite_pingpong_rtos_linux_remote.bin"
+	bootloader_file=spl-imx8mm-var-dart-dual.bin
+	uboot_proper_file=bootloader-imx8mm-var-dart-dual.img
 fi
 
 if [[ "${soc_name}" = *"mx8mp"* ]]; then
