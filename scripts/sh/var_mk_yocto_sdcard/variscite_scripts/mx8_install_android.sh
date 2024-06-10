@@ -244,6 +244,10 @@ if [[ $soc_name == "showoptions" ]] && [[ ${#img_list[@]} > 1 ]] ; then
 			else
 				soc_name=$opt
 			fi
+			if [[ "${soc_name}" == *"imx8mm-var-som"* ]] || [[ "${soc_name}" == *"imx8mm-var-dart-1.x"* ]] ||
+					[[ "${soc_name}" == *"imx8mp-var-dart"* ]] || [[ "${soc_name}" == *"imx8mp-var-som-1.x"* ]]; then
+				imagesdir="/opt/images/Android/lwb"
+			fi
 			break
 		fi
 	done
