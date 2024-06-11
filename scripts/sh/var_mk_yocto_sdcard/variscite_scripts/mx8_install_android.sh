@@ -234,11 +234,12 @@ if [[ $soc_name == "showoptions" ]] && [[ ${#img_list[@]} > 1 ]] ; then
 			continue
 		else
 			if grep -q "i.MX8MM\|i.MX8MN\|i.MX8MQ\|i.MX8MP\|i.MX8QM\|i.MX8QP\|i.MX8QXP" /sys/devices/soc0/soc_id; then
-				third_field=`echo $opt | cut -d "." -f3`
+				dtbo_img=`echo $opt | cut -d " " -f1`
+				third_field=`echo $dtbo_img | cut -d "." -f3`
 				if [[ -z "$third_field" ]]; then
-					soc_name=`echo $opt | cut -d "." -f1`
+					soc_name=`echo $dtbo_img | cut -d "." -f1`
 				else
-					soc_name=`echo $opt | cut -d "." -f1,2`
+					soc_name=`echo $dtbo_img | cut -d "." -f1,2`
 				fi
 				soc_name=`echo ${soc_name} | sed "s/${img_prefix}//"`
 			else
