@@ -202,7 +202,8 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES +=     \
     $(KERNEL_OUT)/net/rfkill/rfkill-gpio.ko \
     $(KERNEL_OUT)/drivers/extcon/extcon-usb-gpio.ko \
     $(KERNEL_OUT)/sound/soc/codecs/snd-soc-wm8904.ko \
-    $(KERNEL_OUT)/drivers/hwmon/gpio-fan.ko
+    $(KERNEL_OUT)/drivers/hwmon/gpio-fan.ko \
+    $(KERNEL_OUT)/drivers/input/keyboard/gpio_keys.ko
 
 endif
 
