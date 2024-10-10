@@ -375,6 +375,13 @@ PRODUCT_COPY_FILES += \
     $(BCM_FIRMWARE_PATH)/brcm/brcmfmac43430-sdio.txt:vendor/firmware/brcm/brcmfmac43430-sdio.txt \
     $(BCM_FIRMWARE_PATH)/brcm/brcmfmac43430-sdio.clm_blob:vendor/firmware/brcm/brcmfmac43430-sdio.clm_blob
 
+# Sonia IF573 : Add necessary firmware file
+PRODUCT_COPY_FILES += \
+  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-pcie.clm_blob:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.clm_blob \
+  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-pcie.trxse:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.trxse \
+  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-pcie.txt:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.txt \
+  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/brcm/CYW55560A1.hcd:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/CYW55560A1.hcd
+
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
@@ -394,7 +401,7 @@ device/variscite/imx8m/dart_mx8mp/cm_rpmsg_lite_pingpong_rtos_linux_remote.bin.d
 
 # Boot Animation
 PRODUCT_COPY_FILES += \
-    device/variscite/common/bootanimation-var1280.zip:system/media/bootanimation.zip
+    device/variscite/common/bootanimation-var1920.zip:system/media/bootanimation.zip
 
 # -------@block_usb-------
 # Usb HAL
