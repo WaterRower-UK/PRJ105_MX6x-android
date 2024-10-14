@@ -366,21 +366,22 @@ PRODUCT_COPY_FILES += \
     external/wireless-regdb/regulatory.db:vendor/firmware/regulatory.db \
     external/wireless-regdb/regulatory.db.p7s:vendor/firmware/regulatory.db.p7s
 
-PRODUCT_COPY_FILES += \
-    $(BCM_FIRMWARE_PATH)/brcm/BCM4335C0.hcd:vendor/firmware/brcm/BCM4335C0.hcd \
-    $(BCM_FIRMWARE_PATH)/brcm/BCM43430A1.hcd:vendor/firmware/brcm/BCM43430A1.hcd \
-    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac4339-sdio.bin:vendor/firmware/brcm/brcmfmac4339-sdio.bin \
-    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac4339-sdio.txt:vendor/firmware/brcm/brcmfmac4339-sdio.txt \
-    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac43430-sdio.bin:vendor/firmware/brcm/brcmfmac43430-sdio.bin \
-    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac43430-sdio.txt:vendor/firmware/brcm/brcmfmac43430-sdio.txt \
-    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac43430-sdio.clm_blob:vendor/firmware/brcm/brcmfmac43430-sdio.clm_blob
+#PRODUCT_COPY_FILES += \
+#    $(BCM_FIRMWARE_PATH)/brcm/BCM4335C0.hcd:vendor/firmware/brcm/BCM4335C0.hcd \
+#    $(BCM_FIRMWARE_PATH)/brcm/BCM43430A1.hcd:vendor/firmware/brcm/BCM43430A1.hcd \
+#    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac4339-sdio.bin:vendor/firmware/brcm/brcmfmac4339-sdio.bin \
+#    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac4339-sdio.txt:vendor/firmware/brcm/brcmfmac4339-sdio.txt \
+#    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac43430-sdio.bin:vendor/firmware/brcm/brcmfmac43430-sdio.bin \
+#    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac43430-sdio.txt:vendor/firmware/brcm/brcmfmac43430-sdio.txt \
+#    $(BCM_FIRMWARE_PATH)/brcm/brcmfmac43430-sdio.clm_blob:vendor/firmware/brcm/brcmfmac43430-sdio.clm_blob
 
 # Sonia IF573 : Add necessary firmware file
 PRODUCT_COPY_FILES += \
-  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-pcie.clm_blob:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.clm_blob \
-  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-pcie.trxse:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.trxse \
-  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-pcie.txt:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.txt \
-  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/brcm/CYW55560A1.hcd:$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/CYW55560A1.hcd
+  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-if573.txt:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.txt \
+  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-if573_v20231020.clm_blob:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.clm_blob \
+  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-pcie-prod_v18.53.284.17.trxse:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.trxse \
+  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/CYW55560A1_v001.002.087.0225.0065.hcd::$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/CYW55560A1.hcd
+
 
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
@@ -644,3 +645,9 @@ PRODUCT_PACKAGES += \
     Sensor0_Entry-4K.cfg \
     daA3840_30mc_1080P.json \
     daA3840_30mc_4K.json
+
+BOARD_WLAN_DEVICE                := bcmdhd
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+BOARD_WPA_HOSTAPD_PRIVATE_LIB    := lib_driver_cmd_bcmdhd
+BOARD_HAVE_BLUETOOTH             := true
+BOARD_HAVE_BLUETOOTH_BCM         := true

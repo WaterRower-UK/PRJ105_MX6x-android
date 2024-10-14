@@ -203,8 +203,11 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES +=     \
     $(KERNEL_OUT)/drivers/extcon/extcon-usb-gpio.ko \
     $(KERNEL_OUT)/sound/soc/codecs/snd-soc-wm8904.ko \
     $(KERNEL_OUT)/drivers/hwmon/gpio-fan.ko \
-    $(KERNEL_OUT)/drivers/input/keyboard/gpio_keys.ko
-
+    $(KERNEL_OUT)/drivers/input/keyboard/gpio_keys.ko\
+    vendor/ezurio/backport/backport/compat/compat.ko \
+    vendor/ezurio/backport/backport/net/wireless/cfg80211.ko \
+    vendor/ezurio/backport/backport/drivers/net/wireless/broadcom/brcm80211/brcmutil/brcmutil.ko \
+    vendor/ezurio/backport/backport/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko
 endif
 
 # -------@block_memory-------

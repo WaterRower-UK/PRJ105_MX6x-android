@@ -285,6 +285,11 @@ on boot && property:vendor.skip.charger_not_need=0
     start drm
 
 on property:sys.brcm.wifibt.completed=1
+   insmod vendor/lib/modules/rfkill.ko
+   insmod vendor/lib/modules/compat.ko
+   insmod vendor/lib/modules/cfg80211.ko
+   insmod vendor/lib/modules/brcmutil.ko
+   insmod vendor/lib/modules/brcmfmac.ko regdomain="US"
    start early_init_sh
    stop vendor.wifi_hal_legacy
    start vendor.wifi_hal_legacy

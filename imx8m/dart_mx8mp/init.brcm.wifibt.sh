@@ -234,7 +234,7 @@ wifi_stop()
 #              Execution starts here            #
 #################################################
 
-wifi_start
+#wifi_start
 
 # BT_BUF up
 echo 0 > /sys/class/gpio/gpio${BT_BUF_GPIO}/value
@@ -242,9 +242,9 @@ setprop ro.boot.dart_imx8mp "true"
 chip_id=`cat /sys/bus/mmc/devices/mmc0\:0001/mmc0\:0001\:1/device`
 
 if [[ "$chip_id" = "0x4339" ]]; then
-        setprop ro.boot.bt_firmware "BCM4335C0.hcd"
+        setprop ro.boot.bt_firmware "CYW55560A1.hcd"
 else
-        setprop ro.boot.bt_firmware "BCM43430A1.hcd"
+        setprop ro.boot.bt_firmware "CYW55560A1.hcd"
 fi
 
 # always set property even if wifi failed
