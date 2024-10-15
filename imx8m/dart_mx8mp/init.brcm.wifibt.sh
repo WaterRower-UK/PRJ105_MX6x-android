@@ -249,6 +249,8 @@ fi
 
 # always set property even if wifi failed
 # as property value "1" is expected in early-boot trigger
+iw reg set US
 setprop sys.brcm.wifibt.completed 1
+iw reg set US
 
 exit 0
