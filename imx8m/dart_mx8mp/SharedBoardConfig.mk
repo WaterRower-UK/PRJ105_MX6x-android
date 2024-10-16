@@ -58,9 +58,9 @@ BOARD_VENDOR_KERNEL_MODULES += \
     $(KERNEL_OUT)/drivers/net/phy/realtek.ko \
     $(KERNEL_OUT)/drivers/ptp/ptp.ko \
     $(KERNEL_OUT)/drivers/pps/pps_core.ko \
-    $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmutil/brcmutil.ko \
-    $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko \
     $(KERNEL_OUT)/drivers/net/ethernet/freescale/fec.ko
+#    $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmutil/brcmutil.ko \
+#    $(KERNEL_OUT)/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko \
 else
 BOARD_VENDOR_KERNEL_MODULES +=     \
     $(KERNEL_OUT)/drivers/input/touchscreen/synaptics_dsx/synaptics_dsx_i2c.ko
@@ -203,11 +203,7 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES +=     \
     $(KERNEL_OUT)/drivers/extcon/extcon-usb-gpio.ko \
     $(KERNEL_OUT)/sound/soc/codecs/snd-soc-wm8904.ko \
     $(KERNEL_OUT)/drivers/hwmon/gpio-fan.ko \
-    $(KERNEL_OUT)/drivers/input/keyboard/gpio_keys.ko\
-    vendor/ezurio/backport/backport/compat/compat.ko \
-    vendor/ezurio/backport/backport/net/wireless/cfg80211.ko \
-    vendor/ezurio/backport/backport/drivers/net/wireless/broadcom/brcm80211/brcmutil/brcmutil.ko \
-    vendor/ezurio/backport/backport/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko
+    $(KERNEL_OUT)/drivers/input/keyboard/gpio_keys.ko
 endif
 
 # -------@block_memory-------

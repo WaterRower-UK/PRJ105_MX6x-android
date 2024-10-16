@@ -237,7 +237,12 @@ wifi_stop()
 #wifi_start
 
 # BT_BUF up
-echo 0 > /sys/class/gpio/gpio${BT_BUF_GPIO}/value
+#echo 0 > /sys/class/gpio/gpio${BT_BUF_GPIO}/value
+insmod vendor/lib/modules/rfkill.ko
+insmod vendor/lib/modules/compat.ko
+insmod vendor/lib/modules/cfg80211.ko
+insmod vendor/lib/modules/brcmutil.ko
+insmod vendor/lib/modules/brcmfmac.ko regdomain="US"
 setprop ro.boot.dart_imx8mp "true"
 chip_id=`cat /sys/bus/mmc/devices/mmc0\:0001/mmc0\:0001\:1/device`
 
@@ -249,8 +254,8 @@ fi
 
 # always set property even if wifi failed
 # as property value "1" is expected in early-boot trigger
-iw reg set US
+iw reg set UK
 setprop sys.brcm.wifibt.completed 1
-iw reg set US
+iw reg set UK
 
 exit 0

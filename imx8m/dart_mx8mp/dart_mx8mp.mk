@@ -380,8 +380,12 @@ PRODUCT_COPY_FILES += \
   vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-if573.txt:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.txt \
   vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-if573_v20231020.clm_blob:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.clm_blob \
   vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-pcie-prod_v18.53.284.17.trxse:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.trxse \
-  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-pcie-prod_v18.53.284.17.trxse:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.variscite,imx8mp-var-som.trxse
-#  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/CYW55560A1_v001.002.087.0225.0065.hcd::$(TARGET_COPY_OUT_VENDOR)/firmware/brcm/CYW55560A1.hcd
+  vendor/ezurio/firmware/laird-if573-pcie-firmware/lib/firmware/cypress/cyfmac55572-pcie-prod_v18.53.284.17.trxse:$(TARGET_COPY_OUT_VENDOR)/firmware/cypress/cyfmac55572-pcie.variscite,imx8mp-var-som.trxse\
+  vendor/ezurio/backport/backport/compat/compat.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/compat.ko \
+  vendor/ezurio/backport/backport/net/wireless/cfg80211.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/cfg80211.ko \
+  vendor/ezurio/backport/backport/drivers/net/wireless/broadcom/brcm80211/brcmutil/brcmutil.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/brcmutil.ko \
+  vendor/ezurio/backport/backport/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/brcmfmac.ko
+
 
 
 # Bluetooth HAL
