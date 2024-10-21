@@ -242,7 +242,7 @@ insmod vendor/lib/modules/rfkill.ko
 insmod vendor/lib/modules/compat.ko
 insmod vendor/lib/modules/cfg80211.ko
 insmod vendor/lib/modules/brcmutil.ko
-insmod vendor/lib/modules/brcmfmac.ko regdomain="US"
+insmod vendor/lib/modules/brcmfmac.ko regdomain="ETSI"
 setprop ro.boot.dart_imx8mp "true"
 chip_id=`cat /sys/bus/mmc/devices/mmc0\:0001/mmc0\:0001\:1/device`
 
