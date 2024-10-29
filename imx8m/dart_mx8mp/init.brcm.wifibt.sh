@@ -245,17 +245,9 @@ insmod vendor/lib/modules/brcmutil.ko
 insmod vendor/lib/modules/brcmfmac.ko regdomain="ETSI"
 setprop ro.boot.dart_imx8mp "true"
 chip_id=`cat /sys/bus/mmc/devices/mmc0\:0001/mmc0\:0001\:1/device`
-
-if [[ "$chip_id" = "0x4339" ]]; then
-        setprop ro.boot.bt_firmware "CYW55560A1.hcd"
-else
-        setprop ro.boot.bt_firmware "CYW55560A1.hcd"
-fi
+setprop ro.boot.bt_firmware "CYW55560A1.hcd"
 
 # always set property even if wifi failed
 # as property value "1" is expected in early-boot trigger
-iw reg set UK
 setprop sys.brcm.wifibt.completed 1
-iw reg set UK
-
 exit 0
