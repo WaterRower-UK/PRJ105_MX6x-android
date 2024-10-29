@@ -6,6 +6,9 @@
 /devices/platform/soc@0/32f10108.usb/38200000.dwc3/* auto auto defaults voldmanaged=usb:auto
 /devices/platform/soc@0/32f10100.usb/38100000.dwc3/* auto auto defaults voldmanaged=usb:auto
 
+#MMC external SD card
+/devices/platform/soc@0/30800000.bus/30b50000.mmc/mmc_host/* auto auto defaults voldmanaged=extsd:auto
+
 /dev/block/by-name/userdata    /data        ext4    nosuid,nodev,nodiratime,noatime,noauto_da_alloc,errors=panic    latemount,wait,formattable,quota,fileencryption=aes-256-xts:aes-256-cts:v2,keydirectory=/metadata/vold/metadata_encryption,reservedsize=128M,checkpoint=block
 /dev/block/by-name/metadata    /metadata    ext4    noatime,nosuid,nodev,discard,sync                                                wait,formattable,first_stage_mount,check
 /dev/block/by-name/misc        /misc        emmc    defaults                                                                         defaults
