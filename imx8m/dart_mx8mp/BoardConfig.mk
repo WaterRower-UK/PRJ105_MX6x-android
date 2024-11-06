@@ -112,8 +112,8 @@ BOARD_CUSTOM_BT_CONFIG := $(BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR)/vnd_con
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 
-BOARD_HAVE_BLUETOOTH             := true
-BOARD_HAVE_BLUETOOTH_BCM         := true
+#BOARD_HAVE_BLUETOOTH             := true
+#BOARD_HAVE_BLUETOOTH_BCM         := true
 
 # -------@block_sensor-------
 #BOARD_USE_SENSOR_FUSION := true
