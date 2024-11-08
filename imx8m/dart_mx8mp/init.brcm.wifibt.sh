@@ -4,9 +4,14 @@
 # /etc/wifi/variscite-wifi.conf #
 #################################
 
+#BT_EN_GPIO=68
+BT_EN_RFKILL=0
+
 BT_REG_ON_GPIO=79
 BT_REG_ON_GPIO_SOM=110
 
+BT_BUF_GPIO=41
+BT_BUF_GPIO_SOM=4
 
 #WIFI_MMC_HOST=30b40000.mmc
 #WIFI_SDIO_ID_FILE=/sys/bus/mmc/devices/mmc0:0001/mmc0:0001:1/device
@@ -22,6 +27,7 @@ board_is_var_som_mx8m_plus()
 config_pins()
 {
 	BT_REG_ON_GPIO=${BT_REG_ON_GPIO_SOM}
+	BT_BUF_GPIO=${BT_BUF_GPIO_SOM}
 }
 
 ######################################
@@ -39,14 +45,22 @@ bluetooth_up()
 		echo out > /sys/class/gpio/gpio${BT_REG_ON_GPIO}/direction
 	fi
 
+	if [ ! -d /sys/class/gpio/gpio${BT_BUF_GPIO} ]; then
+		echo ${BT_BUF_GPIO} > /sys/class/gpio/export
+		echo out > /sys/class/gpio/gpio${BT_BUF_GPIO}/direction
+	fi
+
 	# BT_REG_ON Low
 	#echo 0 > /sys/class/gpio/gpio${BT_REG_ON_GPIO}/value
 
 	# Wait at least 100us
 	usleep 100
 
-	# BT_REG_ON down
-	echo 1 > /sys/class/gpio/gpio${BT_REG_ON_GPIO}/value
+
+
+	# BT_BUF up
+	echo 0 > /sys/class/gpio/gpio${BT_BUF_GPIO}/value
+
 
 }
 
