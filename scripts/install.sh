@@ -206,9 +206,15 @@ pr_info "#######################"
 pr_info "# Clang setup #"
 pr_info "#######################"
 if [[ ! -d ${C_LANG_DIR} ]] ; then
-	sudo git clone ${C_LANG_LINK} ${C_LANG_DIR} -b master
-	cd ${C_LANG_DIR}
-	sudo git checkout bceb7274dda5bb587a5473058bd9f52e678dde98
+	(
+		trap "rm -rf ${C_LANG_DIR}; exit 1" INT TERM
+		mkdir -p ${C_LANG_DIR}
+		cd ${C_LANG_DIR}
+		git init
+		git remote add aosp ${C_LANG_LINK}
+		git fetch --depth=1 aosp bceb7274dda5bb587a5473058bd9f52e678dde98
+		git checkout bceb7274dda5bb587a5473058bd9f52e678dde98
+	)
 fi
 
 if [[ ! -z $SC_MX8_FAMILY ]] ; then
