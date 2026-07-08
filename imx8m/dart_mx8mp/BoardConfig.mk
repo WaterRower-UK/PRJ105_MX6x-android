@@ -10,6 +10,8 @@ include $(CONFIG_REPO_PATH)/imx8m/BoardConfigCommon.mk
 # SoC-specific compile-time definitions.
 #
 
+BUILD_BROKEN_DUP_RULES := true
+
 BOARD_SOC_TYPE := IMX8MP
 BOARD_TYPE := DART-IMX8MP
 BOARD_HAVE_VPU := true
