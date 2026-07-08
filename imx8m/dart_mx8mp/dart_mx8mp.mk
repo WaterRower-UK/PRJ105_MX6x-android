@@ -15,6 +15,8 @@ include $(IMX_DEVICE_PATH)/SharedBoardConfig.mk
 -include device/variscite/common/VarPathConfig.mk
 include $(CONFIG_REPO_PATH)/imx8m/ProductConfigCommon.mk
 
+-include vendor/esper/esper.mk
+
 # -------@block_common_config-------
 # Overrides
 PRODUCT_NAME := dart_mx8mp
