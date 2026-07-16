@@ -69,7 +69,7 @@ else
   endif
 endif
 
-BOARD_PREBUILT_DTBOIMAGE := out/target/product/dart_mx8mp/dtbo-imx8mp-var-dart-dt8mcustomboard.img
+BOARD_PREBUILT_DTBOIMAGE := out/target/product/dart_mx8mp/dtbo-imx8mp-var-som-symphony.img
 
 BOARD_USES_METADATA_PARTITION := true
 BOARD_ROOT_EXTRA_FOLDERS += metadata
