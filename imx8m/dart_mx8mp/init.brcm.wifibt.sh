@@ -94,13 +94,6 @@ wifi_up()
 	# Wait at least 150ms
 	usleep 200000
 
-	# BT_BUF down
-	echo 1 > /sys/class/gpio/gpio${BT_BUF_GPIO}/value
-
-	# BT_EN down
-	#echo 0 > /sys/class/gpio/gpio${BT_EN_GPIO}/value
-	echo 0 > /sys/class/rfkill/rfkill${BT_EN_RFKILL}/state
-
 	# Bind WIFI device to MMC controller
 	echo ${WIFI_MMC_HOST} > /sys/bus/platform/drivers/sdhci-esdhc-imx/bind
 
@@ -138,46 +131,6 @@ wifi_down()
 	echo 0 > /sys/class/gpio/gpio${WIFI_PWR_GPIO}/value
 }
 
-# Return true if SOM has WIFI module assembled
-wifi_is_available()
-{
-        # Read SOM options EEPROM field
-        opt=$(i2cget -f -y 0x0 0x52 0x20)
-
-        # Check WIFI bit in SOM options
-        if [ $((opt & 0x1)) -eq 1 ]; then
-                return 0
-        else
-                return 1
-        fi
-}
-
-
-# Return true if WIFI should not be started
-wifi_should_not_be_started()
-{
-	# Do not start WIFI if it is not available
-	if ! wifi_is_available; then
-		return 0
-	fi
-
-	# Do not start WIFI if it is already started
-	[ -d /sys/class/net/wlan0 ] && return 0
-
-	return 1
-}
-
-# Return true if WIFI should not be stopped
-wifi_should_not_be_stopped()
-{
-	# Do not stop WIFI if it is not available
-	if ! wifi_is_available; then
-		return 0
-	fi
-
-	return 1
-}
-
 ##################
 # variscite-wifi #
 ##################
@@ -196,38 +149,10 @@ wifi_interface_exists()
 # Start WIFI hardware
 wifi_start()
 {
-	# Exit if WIFI should not be started
-	wifi_should_not_be_started && return 0
-
 	# Setup WIFI control GPIOs
 	wifi_pre_up
-
-	# Try starting WIFI hardware
-	for i in $(seq 1 3); do
-		# Up WIFI
-		wifi_up
-
-		# Exit if WIFI interface exists
-		wifi_interface_exists && return 0
-
-		# Down WIFI
-		wifi_down
-
-		# Wait enough time for discharge
-		sleep 5
-	done
-
+	wifi_up
 	return 1
-}
-
-# Stop WIFI hardware
-# Note that on DART-MX8M this also stops Ethernet
-wifi_stop()
-{
-	# Exit if WIFI should not be stopped
-	wifi_should_not_be_stopped && return 0
-
-	wifi_down
 }
 
 #################################################
