@@ -123,7 +123,7 @@ wifi_down()
 
 	# BT_EN down
 	#echo 0 > /sys/class/gpio/gpio${BT_EN_GPIO}/value
-	echo 0 > /sys/class/rfkill/rfkill${BT_EN_RFKILL}/state
+	#echo 0 > /sys/class/rfkill/rfkill${BT_EN_RFKILL}/state
 
 	usleep 10000
 

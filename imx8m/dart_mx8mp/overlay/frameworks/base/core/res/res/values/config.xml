@@ -190,4 +190,7 @@
 
     <!-- Boolean indicating whether system support sustained performance mode. -->
     <bool name="config_sustainedPerformanceModeSupported">true</bool>
+
+    <!-- WaterRower internal kiosk: no USB host "Allow?" dialogs (fails CTS; OK for this product). -->
+    <bool name="config_disableUsbPermissionDialogs">true</bool>
 </resources>

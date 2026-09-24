@@ -158,5 +158,5 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
 BOARD_SEPOLICY_DIRS := \
        $(CONFIG_REPO_PATH)/imx8m/sepolicy \
        $(IMX_DEVICE_PATH)/sepolicy \
-        vendor/waterrower/sepolicy/platform_app.te
+        vendor/waterrower/sepolicy
 
